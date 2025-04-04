@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {useFonts} from 'expo-font'
+import Navigator from './src/navigation/Navigator';
+import { SafeAreaView, View } from 'react-native';
+import { Provider } from 'react-redux';
+import store from './src/store'
+import { useDB } from './src/hooks/useDB';
+import { useEffect } from 'react';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  const [fontsLoaded, fontError] = useFonts({
+    Josefin: require("./assets/JosefinSans-Regular.ttf"),
+  })
+
+  const {initDB} = useDB()
+
+  useEffect(()=>{
+    initDB();    
+  },[]);
+
+  if(!fontsLoaded || fontError) {
+    return null;
+  }
+
+  if(fontsLoaded && !fontError) {
+    return (
+      <Provider store={store}> 
+        <Navigator />
+      </Provider> 
+    );
+  }
+}
