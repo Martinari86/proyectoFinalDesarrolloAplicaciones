@@ -15,7 +15,7 @@ const Home = ({navigation}) => {
       <FlatList
         showsVerticalScrollIndicator={false} 
         keyExtractor={element => element}
-        data={categories}
+        data={data}
         renderItem={({item})=> <CategoryItems 
           category={item} 
           navigation={navigation} />}

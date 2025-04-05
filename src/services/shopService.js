@@ -5,6 +5,7 @@ export const shopApi = createApi({
   reducerPath: 'shopApi',
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
   endpoints: (builder) => ({
+    
     getCategories: builder.query({
       query: () => `tipo.json`,
     }),
@@ -28,6 +29,10 @@ export const shopApi = createApi({
             if(responseTransformed.length) return responseTransformed[0]
             return null
             },
+        }),
+    
+    getOrders: builder.query({
+          query: () => `orders.json`,
         }),
     
     postOrder: builder.mutation({
@@ -65,4 +70,13 @@ export const shopApi = createApi({
     }),
 });
 
-export const {useGetCategoriesQuery, useGetProductsByCategoryQuery, useGetProductByIdQuery, usePostOrderMutation, useUpdateStockMutation,  useGetProfileImageQuery, usePostProfileImageMutation, } = shopApi
+export const {
+  useGetCategoriesQuery, 
+  useGetProductsByCategoryQuery, 
+  useGetProductByIdQuery, 
+  usePostOrderMutation, 
+  useUpdateStockMutation,  
+  useGetProfileImageQuery, 
+  usePostProfileImageMutation, 
+  useGetOrderQuery
+} = shopApi

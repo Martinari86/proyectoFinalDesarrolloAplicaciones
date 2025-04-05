@@ -22,7 +22,9 @@ const MyProfile = ({navigation}) => {
 
   const signOut = async () =>{
     try{
-        const response = await truncateSessionTable()
+      if(Platform.Os !== "web"){
+        await truncateSessionTable()
+      }
         dispatch(clearUser())
     } catch (error){
         console.log(error);

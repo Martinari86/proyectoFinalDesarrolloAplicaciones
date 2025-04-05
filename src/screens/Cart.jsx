@@ -5,18 +5,17 @@ import CartItem from "../Componentes/CartItem/CartItem";
 import { useSelector } from "react-redux";
 import { usePostOrderMutation } from "../services/shopService";
 
+
 const Cart = () => {
   const {items: CartData, total} = useSelector((state)=> state.cart.value)
   const [triggerPostOrder, result] = usePostOrderMutation()
-  
+  const {localId} = useSelector(state = state.auth.value)
+
     onConfirmOrder = () => {
-      triggerPostOrder({items: CartData, user: "Luka", total})
+      triggerPostOrder({items: CartData, user: localId, total})
   
     }
-  
-  
-    console.log(result)
-  
+    
     return (
       <View style={styles.container}>
         <FlatList

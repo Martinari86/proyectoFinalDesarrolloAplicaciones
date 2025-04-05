@@ -1,6 +1,6 @@
 import {useFonts} from 'expo-font'
 import Navigator from './src/navigation/Navigator';
-import { SafeAreaView, View } from 'react-native';
+import { Platform, SafeAreaView, View } from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/store'
 import { useDB } from './src/hooks/useDB';
@@ -14,9 +14,17 @@ export default function App() {
 
   const {initDB} = useDB()
 
-  useEffect(()=>{
-    initDB();    
-  },[]);
+
+  useEffect(() => {
+    try{
+      if(Platform.OS !== 'web'){
+        initDB();
+      }
+    }catch(error){
+      console.log(error)
+    }
+    
+  }, []);
 
   if(!fontsLoaded || fontError) {
     return null;

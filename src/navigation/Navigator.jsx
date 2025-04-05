@@ -2,7 +2,7 @@ import { StyleSheet, SafeAreaView } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabNavigator from "./BottomTabNavigator";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AuthStack from "./AuthStack";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/user/UserSlice";

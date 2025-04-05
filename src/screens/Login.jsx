@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native'
+import { Platform, StyleSheet, Text, View, Pressable } from 'react-native'
 import React, {useEffect, useState} from 'react'
 import { colors } from "../global/color";
 import InputForm from '../Componentes/InputForm/InputForm';
@@ -20,11 +20,13 @@ const Login = ({navigation}) => {
         if(result?.data && result.isSuccess){
         (async () =>{
             try{
-                const response = await insertSession({
-                    email: result.data.email,
-                    token: result.data.idToken,
-                    localId: result.data.localId
-                })
+              if(Platform.OS !== "web"){
+                await insertSession({
+                  email: result.data.email,
+                  token: result.data.idToken,
+                  localId: result.data.localId
+                }) 
+              }  
             dispatch(
                     setUser({
                       email: result.data.email,
