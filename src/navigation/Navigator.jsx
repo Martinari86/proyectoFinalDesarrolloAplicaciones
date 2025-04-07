@@ -7,7 +7,7 @@ import AuthStack from "./AuthStack";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/user/UserSlice";
 import { useDB } from "../hooks/useDB";
-// {user ? <BottomTabNavigator /> : <AuthStack />}
+
 
 
 const Navigator = () => {
@@ -37,8 +37,7 @@ const Navigator = () => {
   return (
 
       <NavigationContainer>
-       
-        <BottomTabNavigator />
+       {user ? <BottomTabNavigator /> : <AuthStack />}
       </NavigationContainer>
   );
 };
