@@ -73,24 +73,24 @@ const Signup = ({navigation}) => {
     return (
       <View style={styles.main}>
         <View style={styles.container}>
-          <Text style={styles.title}>Signup</Text>
-          <InputForm label={"email"} onChange={setEmail} error={errorMail} />
+          <Text style={styles.title}>Registrate YA !!!</Text>
+          <InputForm label={"E-Mail"} onChange={setEmail} error={errorMail} />
           <InputForm
-            label={"password"}
+            label={"Pokeseña"}
             onChange={setPassword}
             error={errorPassword}
             isSecure={true}
           />
           <InputForm
-            label={"confirm password"}
+            label={"Confirma la PokeSeña"}
             onChange={setConfirmPassword}
             error={errorConfirmPassword}
             isSecure={true}
           />
-          <SubmitButton onPress={onSubmit} title="Send" />
-          <Text style={styles.sub}>Already have an account?</Text>
-          <Pressable onPress={() => navigation.navigate("Login")}>
-            <Text style={styles.subLink}>Login</Text>
+          <SubmitButton onPress={onSubmit} title="Enviar" />
+          <Text style={styles.sub}>Ya eres Entrenador ?</Text>
+          <Pressable style={styles.boton} onPress={() => navigation.navigate("Login")}>
+            <Text style={styles.subLink}>Logueate YA !!!</Text>
           </Pressable>
         </View>
       </View>
@@ -119,15 +119,25 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontFamily: "Josefin",
+    fontWeight: "bold",
+    color: "blue"
   },
   sub: {
     fontSize: 14,
     fontFamily: "Josefin",
-    color: "black",
+    fontWeight: "bold",
+    color: "blue"
   },
   subLink: {
     fontSize: 14,
     fontFamily: "Josefin",
-    color: "blue",
+    color: colors.primary,
+    textAlign: "center"
   },
+  boton: {
+    backgroundColor: "blue",
+    width: "25%",
+    fontWeight: "bold",
+    borderRadius: 10,
+  }
 });

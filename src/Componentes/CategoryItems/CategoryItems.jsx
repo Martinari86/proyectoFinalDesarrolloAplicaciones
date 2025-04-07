@@ -26,8 +26,10 @@ export default CategoryItems
 
 const styles = StyleSheet.create({
     text: {
-        color: colors.tertiary,
+        color: "blue",
+        backgroundColor:colors.primary,
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 25,
+        fontWeight:"bold"
     }
 })

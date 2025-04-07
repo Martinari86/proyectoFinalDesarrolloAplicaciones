@@ -12,7 +12,9 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.flatListContainer}>
+      <Text style={styles.text}>Elige tu TIPO DE POKEMON !!!</Text>
       <FlatList
+        style={styles.flatList}
         showsVerticalScrollIndicator={false} 
         keyExtractor={element => element}
         data={data}
@@ -29,11 +31,17 @@ export default Home
 const styles = StyleSheet.create({
     flatListContainer: {
         width: '100%',
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.tertiary,
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,
+    },
+    text:{
+      color:"blue",
+      fontWeight: "bold",
+      fontSize:"50px"
+
     }
 })

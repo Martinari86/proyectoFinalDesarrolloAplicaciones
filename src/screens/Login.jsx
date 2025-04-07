@@ -1,4 +1,4 @@
-import { Platform, StyleSheet, Text, View, Pressable } from 'react-native'
+import { Platform, StyleSheet, Text, View, Pressable, Image } from 'react-native'
 import React, {useEffect, useState} from 'react'
 import { colors } from "../global/color";
 import InputForm from '../Componentes/InputForm/InputForm';
@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useSignInMutation } from '../services/authService';
 import { setUser } from '../features/user/UserSlice';
 import { useDB } from '../hooks/useDB';
+import { pokestore } from "../../assets/logoPokeStore.png"
 
 const Login = ({navigation}) => {
 
@@ -49,18 +50,22 @@ const Login = ({navigation}) => {
     return (
       <View style={styles.main}>
         <View style={styles.container}>
-          <Text style={styles.title}>Login to start</Text>
-          <InputForm label={"email"} onChange={setEmail} error={""} />
+          <Text style={styles.title}>Bienvenido a la POKESTORE</Text>
+          <InputForm 
+            label={"E-mail"} 
+            onChange={setEmail} 
+            error={""} 
+          />
           <InputForm
-            label={"password"}
+            label={"Pokeseña"}
             onChange={setPassword}
             error={""}
             isSecure={true}
           />
-          <SubmitButton onPress={onSubmit} title="Send" />
-          <Text style={styles.sub}>Not have an account?</Text>
-          <Pressable onPress={() => navigation.navigate("Signup")}>
-            <Text style={styles.subLink}>Sign up</Text>
+          <SubmitButton onPress={onSubmit} title="Ingresa YA !!" />
+          <Text style={styles.sub}>Nuevo Entrenador?</Text>
+          <Pressable style={styles.boton} onPress={() => navigation.navigate("Signup")}>
+            <Text style={styles.subLink}>Registrate YA !!</Text>
           </Pressable>
         </View>
       </View>
@@ -89,13 +94,24 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontFamily: "Josefin",
+    color: "blue",
+    fontWeight: "bold"
   },
   sub: {
     fontSize: 14,
-    color: "black",
+    color: "blue",
+    fontWeight: "bold"
   },
   subLink: {
     fontSize: 14,
-    color: "blue",
+    color: colors.primary,
+    textAlign: "center"
   },
+  boton: {
+    backgroundColor: "blue",
+    width: "25%",
+    fontWeight: "bold",
+    borderRadius: 10,
+  }
+
 });

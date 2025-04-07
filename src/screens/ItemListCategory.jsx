@@ -55,6 +55,7 @@ const ItemListCategory = ({
       />
       <FlatList
         data={productsFiltered}
+        showsVerticalScrollIndicator={false} 
         renderItem={({ item }) => <ProductItem 
           product={item} 
           navigation={navigation}
@@ -70,7 +71,7 @@ export default ItemListCategory
 const styles = StyleSheet.create({
   flatListContainer: {
     width: "100%",
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.tertiary,
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",

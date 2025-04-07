@@ -1,16 +1,18 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //import OrderData from "../data/orders.json";
 import OrderItem from "../Componentes/OrderItem/OrderItem";
-import { useGetOrderQuery } from "../services/shopService";
+import { useGetOrdersQuery } from "../services/shopService";
+import { useSelector } from "react-redux";
+
 
 const OrderScreen = () => {
-  const {data: OrderData, error, isLoading, isSuccess} = useGetOrderQuery()
+  const {data: OrderData, error, isLoading, isSuccess} = useGetOrdersQuery()
   const {localId} = useSelector(state => state.auth.value)
   const [ordersFiltered, setOrderFiltered] = useState()
   useEffect(() =>{
         if(isSuccess){
-          const responseTransformed = Objetd.values(OrdenData)
+          const responseTransformed = Objetd.values(OrderData)
           const ordersByUser = responseTransformed.filter( order => orden.user === localId)
           setOrderFiltered(ordersByUser)
         }

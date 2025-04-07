@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   textCategory: {
-    color: colors.tertiary,
+    color: "blue",
+    fontWeight: "bold",
     width: "70%",
   },
   pressable: {

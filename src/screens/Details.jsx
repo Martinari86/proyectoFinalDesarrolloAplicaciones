@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 //import allProducts from "../data/products.json";
 import { isLoading } from "expo-font";
 import { addCartItem } from "../features/cart/CartSlice";
+import { colors } from "../global/color";
 
 const Details = ({route, navigation}) => {
 
@@ -30,7 +31,7 @@ const Details = ({route, navigation}) => {
 
   return (
     <View>
-      <Button onPress={() => navigation.goBack()} title="Go back" />
+      <Button onPress={() => navigation.goBack()} title="Ir Atras" />
       {product ? (
         <View
           style={
@@ -45,12 +46,15 @@ const Details = ({route, navigation}) => {
             style={orientation === 'portrait' ? styles.image : styles.imageLandscape}
           />
           <View style={orientation === 'portrait' ? styles.textContainer : styles.textContainerLandscape}> 
-            <Text>{product.nombre}</Text>
-            <Text>{product.tipo}</Text>
-            <Text>{product.ataques}</Text>
-            <Text style={styles.price}>${product.precio}</Text>
-            <Button title="Add cart" onPress={handleAddCart}></Button>
+            <Text style={styles.text}>{product.nombre}</Text>
+            <Text style={styles.text}>{product.tipo}</Text>
+            <Text style={styles.text}>{product.ataques}</Text>
+            <Text style={styles.text}>${product.precio}</Text> 
+            <View style={styles.viewBoton}>
+              <Button title="Añadir a la Pokebola" onPress={handleAddCart}></Button>
+            </View>  
           </View>
+          
         </View>
       ) : null} 
     </View>
@@ -63,43 +67,58 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "flex-start",
-    padding: 10,
+    alignItems: "center",
+    //height:"100%",
+    //width:"100%",
+    backgroundColor: colors.tertiary,
+    //padding: 10,
   },
   mainContainerLandscape: {
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    padding: 10,
-    gap: 10,
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    backgroundColor: colors.tertiary,
+    height:"100%",
+    width:"100%",
+    //padding: 10,
+    //gap: 10,
   },
   image: {
     width: 100,
     height: 100,
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center"
   },
   imageLandscape: {
     width: 100,
     height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center"
   },
   textContainer: {
-    width: "50%",
+    width: "100%",
     flexDirection: "column",
     justifyContent: "center",
+    textAlign: "center",
     alignItems: "start",
     gap: 10,
   },
 
   textContainerLandscape: {
-    width: "50%",
+    width: "100%",
     flexDirection: "column",
+    textAlign: "center",
     justifyContent: "center",
     alignItems: "start",
     gap: 10,
   },
-  price: {
-    textAlign: "right",
+  text: {
+    textAlign: "center",
     width: "100%",
   },
+  viewBoton:{
+    width: "100%",
+  }
 });

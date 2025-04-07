@@ -38,7 +38,7 @@ const BottomTabNavigator = () => {
                 <FontAwesome5
                   name="store"
                   size={24}
-                  color={focused ? "black" : colors.tertiary}
+                  color={focused ? "black" : "blue"}
                 />
               </View>
             );
@@ -47,7 +47,7 @@ const BottomTabNavigator = () => {
       />
 
       <Tab.Screen
-        name="Cart"
+        name="Cart2"
         component={CartStackNavigator}
         options={{
           tabBarIcon: ({ focused }) => {
@@ -56,7 +56,7 @@ const BottomTabNavigator = () => {
                 <FontAwesome6
                   name="cart-shopping"
                   size={24}
-                  color={focused ? "black" : colors.tertiary}
+                  color={focused ? "black" : "blue"}
                 />
               </View>
             );
@@ -74,7 +74,7 @@ const BottomTabNavigator = () => {
                 <FontAwesome5
                   name="receipt"
                   size={24}
-                  color={focused ? "black" : colors.tertiary}
+                  color={focused ? "black" : "blue"}
                 />
              
               </View>
@@ -93,7 +93,7 @@ const BottomTabNavigator = () => {
                 <Ionicons
                   name="person-circle"
                   size={24}
-                  color={focused ? "black" : colors.tertiary}
+                  color={focused ? "black" : "blue"}
                 />
               </View>
             );

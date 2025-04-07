@@ -9,7 +9,7 @@ import { usePostOrderMutation } from "../services/shopService";
 const Cart = () => {
   const {items: CartData, total} = useSelector((state)=> state.cart.value)
   const [triggerPostOrder, result] = usePostOrderMutation()
-  const {localId} = useSelector(state = state.auth.value)
+  const {localId} = useSelector((state) => state.auth.value)
 
     onConfirmOrder = () => {
       triggerPostOrder({items: CartData, user: localId, total})
@@ -29,9 +29,6 @@ const Cart = () => {
           <Pressable onPress={onConfirmOrder}>
             <Text>Confirm</Text>
           </Pressable>
-          <View>
-            <Text>Total: ${total}</Text>
-          </View>
         </View>
       </View>
     );

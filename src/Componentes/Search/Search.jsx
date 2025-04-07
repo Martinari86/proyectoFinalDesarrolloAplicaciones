@@ -18,13 +18,13 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
         onChangeText={setKeyword}
       />
       <Pressable onPress={() => onSearch(keyword)}>
-        <FontAwesome name="search" size={24} color="white" />
+        <FontAwesome name="search" size={24} color="blue" />
       </Pressable>
       <Pressable onPress={() => setKeyword("")}>
-        <FontAwesome5 name="eraser" size={24} color="white" />
+        <FontAwesome5 name="eraser" size={24} color="blue" />
       </Pressable>
       <Pressable onPress={goBack}>
-        <AntDesign name="back" size={24} color="white" />
+        <AntDesign name="back" size={24} color="blue" />
       </Pressable>
       {error ? <Text>{error}</Text> : null}
     </View>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     padding: 8,
     fontSize: 18,
     backgroundColor: colors.primary,
-    color: colors.tertiary,
+    color: "blue",
     borderRadius: 10,
   },
 });
